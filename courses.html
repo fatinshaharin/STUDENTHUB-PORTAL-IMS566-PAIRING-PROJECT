@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudentHub Portal - Courses</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Bootstrap-icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+
+    /* ==========================================
+                   CSS CUSTOM STYLING
+       ========================================== */
+    
+    /* Global Page Layout */
+    body {
+      background: #f4f6ff;
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 20px;
+    }
+    
+    /* Navbar Brand Styling */
+    .navbar-brand img {
+      height: 60px;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #4F46E5 !important;
+    }
+    
+    /* Layout & Section Headings */
+    .section-title {
+      font-weight: 700;
+      color: #4F46E5;
+    }
+    .page-container {
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+    
+    /* Course Grid Card Styling */
+    .course-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+    .course-code {
+      font-weight: 700;
+      color: #4F46E5;
+      font-size: 0.9rem;
+    }
+    
+    /* Badge Customization for Status */
+    .badge {
+      border-radius: 8px;
+      padding: 6px 12px;
+    }
+    
+    /* Workload Chart Container Styling */
+    .chart-section {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-top: 40px;
+    }
+    
+    /* Standardized Footer Style */
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      padding: 30px 0;
+      background: #fff;
+      border-top: 1px solid #eef0f7;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top px-4">
+  <a class="navbar-brand" href="menu.html">
+      <img src="images/logo2.png" alt="StudentHub Logo">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link active fw-bold text-primary" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="grades.html">Grades</a></li>
+        <li class="nav-item"><a class="nav-link" href="announcement.html">Announcements</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown"> Profiles</a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><a class="dropdown-item" href="myprofile.html"><i class="bi bi-person-circle me-2"></i>My Profile</a></li>
+                <li><a class="dropdown-item" href="students.html"><i class="bi bi-people-fill me-2"></i>Students</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-danger" href="javascript:void(0)" onclick="confirmLogout()">Logout</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Courses Section -->
+<div class="container page-container">
+    <div class="mb-4">
+      <h2 class="section-title mb-1">My Courses</h2>
+      <span class="text-muted small">Academic Session: 2025/2026</span>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="course-card">
+          <span class="course-code">IMS613</span>
+          <h5 class="mt-2 fw-bold">Data Center Operations and Infrastructure</h5>
+          <p class="text-muted small mb-3">Faculty of Information Science</p>
+          <span class="badge bg-primary-subtle text-primary">Current</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="course-card">
+          <span class="course-code">IMS611</span>
+          <h5 class="mt-2 fw-bold">System Analysis and Design in Information Management</h5>
+          <p class="text-muted small mb-3">Faculty of Information Science</p>
+          <span class="badge bg-primary-subtle text-primary">Current</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="course-card">
+          <span class="course-code">IMS610</span>
+          <h5 class="mt-2 fw-bold">Design Science Research for Information System</h5>
+          <p class="text-muted small mb-3">Faculty of Information Science</p>
+          <span class="badge bg-warning-subtle text-warning">In Progress</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="course-card">
+          <span class="course-code">IMS552</span>
+          <h5 class="mt-2 fw-bold">Information Systems Management</h5>
+          <p class="text-muted small mb-3">Faculty of Information Science</p>
+          <span class="badge bg-primary-subtle text-primary">Current</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="course-card">
+          <span class="course-code">IMR532</span>
+          <h5 class="mt-2 fw-bold">Business and Legal Records Management (Elective)</h5>
+          <p class="text-muted small mb-3">Faculty of Information Science</p>
+          <span class="badge bg-warning-subtle text-warning">In Progress</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="course-card">
+          <span class="course-code">ICM572</span>
+          <h5 class="mt-2 fw-bold">Gamification for Information Content (Elective)</h5>
+          <p class="text-muted small mb-3">Faculty of Information Science</p>
+          <span class="badge bg-success-subtle text-success">Completed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-section">
+        <h5 class="fw-bold mb-4 text-center">Course Workload Distribution (Credits)</h5>
+        <div style="height: 300px;">
+            <canvas id="workloadChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2025 StudentHub Portal — IMS566 Project. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    /*
+     * Funtion: confirmLogout
+     * Description: Verifies user intent before ending the session.
+     */
+    function confirmLogout() {
+      if (confirm("Are you sure you want to logout?")) {
+        window.location.href = "index.html";
+      }
+    }
+
+    /*
+     * Chart.js Configuration
+     * Initializes the bar chart to visualize credit hours per subject.
+     */
+    const ctx = document.getElementById('workloadChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['IMS613', 'IMS611', 'IMS610', 'IMS552', 'IMR532', 'ICM572'],
+            datasets: [{
+                label: 'Credit Hours',
+                data: [3, 4, 4, 3, 2, 2], // Credit hour data
+                backgroundColor: [
+                    'rgba(79, 70, 229, 0.7)', // Indigo
+                    'rgba(16, 185, 129, 0.7)', // Green
+                    'rgba(16, 185, 129, 0.7)', // Green
+                    'rgba(79, 70, 229, 0.7)', // Indigo
+                    'rgba(245, 158, 11, 0.7)', // Yellow
+                    'rgba(245, 158, 11, 0.7)'// Yellow
+                ],
+                borderColor: [
+                    '#4F46E5', '#10B981', '#10B981', '#4F46E5', '#F59E0B', '#F59E0B'
+                ],
+                borderWidth: 1,
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 5, // Maximum credits for a single subject
+                    grid: { display: false }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                legend: { display: false } // Hiding legend for a cleaner UI
+            }
+        }
+    });
+</script>
+</body>
+</html>
